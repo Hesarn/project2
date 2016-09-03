@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+{% extends 'posts_Template.html' %}
+{% load static %}
+
+{% block extraCSS %} <link rel="stylesheet" type="text/css" href="{% static 'css/films_tooltip.css' %}"> {% endblock %}
+
+
+{% block typeOfPost %} <div class="post"> {% endblock %}
+{% block endTypeOfPost %} </div> {% endblock %}

@@ -1,0 +1,146 @@
+.overlay { 
+    background-color: rgba(0, 0, 0, 0.6);
+    bottom: 0; 
+    cursor: default; 
+    left: 0; 
+    opacity: 0;
+    position: fixed; 
+    right: 0;
+    top: 0;
+    display: none; 
+    z-index: 1;
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    -o-transition: opacity .5s; 
+    transition: opacity .5s; 
+}
+
+.overlay:target { 
+    display: block; 
+    opacity: 1; 
+}
+
+.popup { 
+    background-color: #fff; 
+    border: 3px solid #fff; 
+    display: inline-block; 
+    left: 50%; 
+    opacity: 0; 
+    padding: 15px;
+    position: fixed;
+    top: 40%; 
+    visibility: hidden; 
+    z-index: 10;
+    -webkit-transform: translate(-50%, -50%); 
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); 
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px; 
+    -webkit-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    -moz-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    -ms-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    -o-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset; 
+    box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset; 
+    -webkit-transition: opacity .5s, top .5s; 
+    -moz-transition: opacity .5s, top .5s; 
+    -ms-transition: opacity .5s, top .5s; 
+    -o-transition: opacity .5s, top .5s;
+    transition: opacity .5s, top .5s;
+}
+
+.popup textarea
+{
+    width: 300px;
+    height: 100px;
+    padding: 5px;
+}
+
+.popup h2 
+{
+    margin-top: 3px;
+    margin-bottom: 15px;
+}
+
+.popup span
+{
+    font-family: cursive;
+    font-size: 13px;
+}
+
+.popup select
+{
+    font-size: 10px;
+    padding: 2px;
+    height: 30px;
+    width: 40px;
+    text-indent: 8px;
+    margin-bottom: 5px;
+}
+
+.popup_buttons
+{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.popup_buttons input
+{
+    width: 200px;
+    height: 40px
+}
+
+.popup .left_img
+{
+    display: inline-block;
+    clear: left;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.popup_div
+{
+    margin: 20px auto;
+    width: 100%;
+    overflow: hidden
+}
+
+.popup_div > div 
+{
+    float: left;
+    text-align: center;
+}
+
+.popup_div p
+{
+    font-size: 10px;
+    font-weight: bold;
+    clear: left;
+    
+}
+
+.popup .suggested_movie
+{
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.popup .suggested_movie_img
+{
+    height: 140px;
+}
+
+.overlay:target+.popup {
+    min-height: 300px;
+    min-width: 400px;
+    top: 50%; 
+    opacity: 1;
+    visibility: visible;
+}
+

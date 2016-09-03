@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{% block title %} {% endblock %}</title>
+		<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}" />
+        {% block extraCSS %} {% endblock %}
+	</head>
+	<body>
+		<div id="wrapper">
+			<header>
+				<a href="{% url 'timeLine' %}"><img src="{% static "img/logo-small.png" %}" class="header_img"></a>
+					<form action="{% url 'search' %}" method="get">
+						<select name="type">
+							<option value="1">Film</option>
+							<option value="2">People</option>
+						</select>
+						<input type="text" autocomplete="off" name="search" value="" placeholder="Search films or other users" class="header_input">
+						<input type="submit" value=" " class="header_button">
+
+                        <div id="searchResult">
+
+                        </div>
+					</form>
+
+                    {% block extendedHeader %} {% endblock %}
+			</header>
+
+			<div id="extraDiv"></div>
+
+            <div>
+                {% block content %}
+
+                {% endblock %}
+            </div>
+
+			<footer> &copy 2015 </footer>
+		</div>
+	</body>
+
+    <script src="{% static "js/jquery-2.1.3.min.js" %}"></script>
+
+    {% block scripts %} {% endblock %}
+
+</html>

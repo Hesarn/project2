@@ -1,0 +1,60 @@
+{% extends 'Header_Aside_Template.html' %}
+{% load static %}
+
+{% block extraCSS %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/films_tooltip.css' %}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+{% endblock %}
+
+{% block userHeaderProfile %}
+    <div class="post">
+        <form method="post" action="{% url 'editProfile' %}" style="text-align: center" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="edit-label"> Username </div>
+            <div class="edit-field"> <input class="input" id="id_username" name="username"
+                         placeholder="{{ user.user.username }}" type="text" disabled /> </div>
+
+            <div class="edit-label"> Email </div>
+            <div class="edit-field"> <input class="input" id="id_email" name="email"
+                         placeholder="{{ user.user.email }}" type="text" disabled/> </div>
+
+            {% for field in form %}
+                {% if field.name != 'profilePicture' %}
+                    <div class="edit-label"> {{ field.name|title }} </div>
+
+                {% else %}
+                    <div class="edit-label"> Profile Picture </div>
+                {% endif %}
+
+                <div class="edit-field"> {{ field }} </div>
+
+                <ul class="errorlist">
+                    {% for error in field.errors %}
+                        <li> {{ error }} </li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+
+            <div><input type="submit" name="commit" value="Submit" class="login_button edit_button" id="signup_button"></div>
+        </form>
+
+        <a href="{% url 'changePassword' %}" style="text-align: center;"> <p> Change your password </p> </a>
+    </div>
+
+{% endblock %}
+
+
+{% block extraScripts %}
+    <script src="{% static 'js/follow_unfollow.js' %}"> </script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script>
+        $("#datepicker" ).datepicker(
+                {
+                    dateFormat: 'yy-mm-dd'
+                });
+    </script>
+{% endblock %}

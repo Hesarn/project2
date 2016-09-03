@@ -1,0 +1,11 @@
+{% load static %}
+
+<div class="post_comments">
+    <div class="post_comment_div">
+        <a href="{% url 'showProfile' cm.user.id %}" title="{{ cm.user.user.username }}">
+        <img src="{{ cm.user.profilePicture.url }}" class="left_img post_cm_img"></a>
+        <a href="{% url 'showProfile' cm.user.id%}"><p> {{ cm.user.user.username }} </p></a>
+        <p> {{ cm.body }} </p>
+    </div>
+    <hr>
+</div>

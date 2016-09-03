@@ -1,0 +1,77 @@
+{% extends 'Base_Template.html' %}
+{% load static %}
+
+{% block extendedHeader %}
+    <a href="{% url 'logout' %}"><img src="{% static "img/exit.png" %}" class="right_img header_img"></a>
+    <a href="{% url 'editProfile' %}"><img src="{% static "img/setting.png" %}" class="right_img header_img"></a>
+    <a href="{% url 'showProfile' currUser.id%}"><img src="{% static "img/user.png" %}" class="right_img header_img"></a>
+    <a href=""><img id="notif_pic" src="{% static "img/notif.png" %}" class="right_img header_img"></a>
+
+    <div id='notif' style="display: none;">
+        {% for notif in currUser.second.all reversed %}
+            {% if forloop.counter <= 5 %}
+                <div class="suggested_people">
+                    <a href="{% url 'showProfile' notif.firstUser.id%}" title="{{ notif.firstUser }}">
+                        <img src="{{ notif.firstUser.profilePicture.url }}" class="left_img"></a>
+                    <p>
+                        <a href="{% url 'showProfile' notif.firstUser.id%}">
+                            {{ notif.firstUser.user.username }}
+                        </a>
+
+                        {% if notif.notificationState == 1 %}
+                            liked your
+                            <a href="{% url 'showPost' notif.post.user.id notif.post.id %}">
+                                post
+                            </a>.
+                        {% endif %}
+
+                        {% if notif.notificationState == 2 %}
+                            commented on your
+                            <a href="{% url 'showPost' notif.post.user.id notif.post.id%}">
+                                post
+                            </a>.
+                        {% endif %}
+
+                        {% if notif.notificationState == 3 %}
+                            is following you now.
+                        {% endif %}
+
+                        {% if notif.notificationState == 4 %}
+                            commented on the
+                            <a href="{% url 'showPost' notif.post.user.id notif.post.id%}">
+                                post
+                            </a>
+                            that you commented before.
+                        {% endif %}
+                    </p>
+                </div>
+                <hr>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+{% block content %}
+    <aside address="{% url 'aside' %}">
+        <h1> Suggested Movies </h1>
+        <hr>
+
+    </aside>
+
+    <div id="postsWrapper">
+        {% block userHeaderProfile %} {% endblock %}
+        {% block posts %}{% endblock %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static "js/setAsidePosition.js" %}"></script>
+    <script src="{% static "js/addCommentToPosts.js" %}"></script>
+    <script src="{% static "js/showNotif.js" %}"></script>
+    <script src="{% static "js/showTooltip.js" %}"></script>
+    <script src="{% static "js/likePost.js" %}"></script>
+    <script src="{% static "js/search.js" %}"></script>
+    <script src="{% static "js/random_aside.js" %}"></script>
+    {% block extraScripts %} {% endblock %}
+{% endblock %}

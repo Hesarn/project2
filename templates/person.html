@@ -1,0 +1,50 @@
+{% extends 'Header_Aside_Template.html' %}
+{% load static %}
+
+{% block posts %}
+    <div id="postsWrapper">
+        <div class="post">
+            {% for user in users %}
+                <div class="post_header">
+                    <a href="{% url 'showProfile' user.id %}"><img src="{{ user.profilePicture.url }}"
+                                                                         title="{{ user.user.username }}"
+                                                                         class="left_img profile_img"></a>
+                    <p>
+                        <a href="{% url 'showProfile' user.id %}"> {{ user.user.username }} </a>
+
+                        {% if user != currUser %}
+                            {% if user in currUser.followingUsers.all %}
+                                <a href="{% url 'followUnfollow' user.id %}"><input type="submit" name="commit" value="Unfollow"
+                                                                             class="ff_button unfollow"></a>
+                            {% endif %}
+
+                            {% if user not in currUser.followingUsers.all %}
+                                <a href="{% url 'followUnfollow' user.id %}"><input type="submit" name="commit" value="Follow"
+                                                                           class="ff_button follow"></a>
+                            {% endif %}
+                        {% endif %}
+
+                    </p>
+
+                    <h5>
+                        <a href="{% url 'showUsers' 'following' user.id %}" class="ezClass">
+                            following: <span> {{ user.followingUsers.all|length }} </span>
+                        </a>
+                    </h5>
+
+                    <h5>
+                        <a href="{% url 'showUsers' 'follower' user.id%}" class="ezClass">
+                            followers: <span> {{ user.followerUsers.all|length }} </span>
+                        </a>
+                    </h5>
+                </div>
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block extraScripts %}
+    <script src="{% static 'js/follow_unfollow.js' %}"> </script>
+{% endblock %}
+

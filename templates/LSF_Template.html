@@ -1,0 +1,15 @@
+{% extends 'Base_Template.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="img_container">
+        <img class="mid_img" src="{% static "img/logo.png" %}">
+    </div>
+
+    {% block login %} {% endblock %}
+
+    {% block signup %} {% endblock %}
+
+    {% block forget %} {% endblock %}
+{% endblock %}
+

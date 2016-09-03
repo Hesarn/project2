@@ -1,0 +1,67 @@
+{% extends "LSF_Template.html" %}
+{% load static %}
+
+{% block title %} signup {% endblock %}
+
+{% block signup %}
+    <h2 class="center">Creat your Account here</h2>
+    <div class="login">
+        <h1>Sign Up</h1>
+        <form method="post" action="">
+            {% csrf_token %}
+
+            <ul class="errorlist">
+                {% for error in signupForm.non_field_errors %}
+                    <li> {{  error }} </li>
+                {% endfor %}
+                <br>
+            </ul>
+
+            {% for field in signupForm %}
+                {% if forloop.counter != 7 and forloop.counter != 6%}
+                    <div> {{ field }} </div>
+                    <ul class="errorlist">
+                        {% for error in field.errors %}
+                            <li> {{ error }} </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endfor %}
+
+            <div id="BirthdayWrapper">
+                <div id="BirthdayDiv">
+                    <div id="BirthdayText">
+                        Birthday
+                    </div>
+                    {{ signupForm.birthday }}
+                </div>
+
+                <ul class="errorlist">
+                    {% for error in signupForm.birthday.errors %}
+                        <li> {{ error }} </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div id="captcha">
+                {{ signupForm.captcha }}
+                <ul class="errorlist">
+                    {% for error in signupForm.captcha.errors %}
+                        <li> {{ error }} </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div><input type="submit" name="commit" value="Sign Up" class="login_button" id="signup_button"></div>
+            <a href="{% url "login"%}">Login Page</a>
+        </form>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+{#    <script src="{% static 'js/signup.js' %}"></script>#}
+
+    <script>
+        $('#captcha input').attr('placeholder', 'Entere the captcha')
+    </script>
+{% endblock %}

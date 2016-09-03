@@ -1,0 +1,30 @@
+{% load static %}
+{% load my_filters %}
+
+{% if not isInSearch %}
+    {% for film in films %}
+        <div class="suggested_people">
+            <a href="{% url 'movieProfile' film.name %}" title="{{ film.name }}"><img src="{{ film.picture.url }}" class="left_img"></a>
+            <p>
+               <a href="{% url 'movieProfile' film.name %}"> {{ film.name }} </a>
+            </p>
+        </div>
+        <hr>
+    {% endfor %}
+{% endif %}
+
+{% if isInSearch %}
+    {% for film in films %}
+        <div id="movieResult">
+            <div class="suggested_movie">
+                <a href="{% url 'movieProfile' film.name %}"><img src="{{ film.picture.url }}" title="{{ film.name }}"
+                                                                    class="left_img suggested_movie_img"></a>
+                <a href="{% url 'movieProfile' film.name %}"><h2> {{ film.name }} </h2></a>
+                <img src="/static/img/rate_{{ film.averageScore|round }}.png">
+                <a href="{{ film.imdbLink }}" class="suggested_movie_imdb"><img src="{% static 'img/IMDB.png' %}"
+                                                             class="imdb_img"></a>
+            </div>
+            <hr>
+        </div>
+    {% endfor %}
+{% endif %}

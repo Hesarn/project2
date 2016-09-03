@@ -1,0 +1,13 @@
+{% extends "LSF_Template.html" %}
+
+{% block forget %}
+    <h2 class="center">Recover your Account Password</h2>
+    <div class="login">
+        <h1>Password Recovery</h1>
+        <form method="post" action="">
+            <div><input type="text" name="login" value="" placeholder="Username or Email" class="input"></div>
+            <div><input type="submit" name="commit" value="Recover" class="login_button" id="Recovery_button"></div>
+            <a href="{% url "login"%}">Login Page</a>
+        </form>
+    </div>
+{% endblock %}

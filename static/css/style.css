@@ -1,0 +1,659 @@
+*:active, *:focus {
+	outline: none;
+}
+
+body {
+	font-family: 'Helvetica Neue', Helvetica, sans-serif;
+	margin: 0;
+	background-image: url("../img/bg.png");
+}
+
+h1 {
+	font-family: serif;
+	letter-spacing: 1.5px;
+}
+
+#wrapper
+{
+    width: 1100px;
+	height: 100%;
+	min-height: 700px;
+    margin: 0 auto;
+    position: relative;
+/* 	background-image: url("../img/bg.png"); */
+/*	background-color: #f2f2f2;*/
+}
+
+aside h1 {
+	text-align: center;
+	font-size: 16px;
+	margin-bottom: 0;
+}
+
+aside {
+	width: 300px;
+	height: 550px;
+	right: 10px;
+    top: 100px;
+/*	margin-top: 20px;*/
+	position: absolute;
+	background-color: #fcfcfc;
+	z-index: 1;
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 1);
+	overflow: auto;
+}
+
+#postsWrapper {
+/*
+    position: absolute;
+	right: 350px;
+	left: 10px;
+	top: 90px;
+*/
+    margin: 30px 350px 30px 10px;
+    
+}
+
+.post {
+	width: 100%;
+	min-width: 650px;
+/* 	z-index: 1; */
+	background-color: #fcfcfc;
+	padding: 5px 10px;
+	margin-bottom: 30px;
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 1);
+}
+
+.post_in_profile {
+	width: 90%;
+	min-width: 585px;
+	background-color: #fcfcfc;
+	padding: 5px 10px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+	box-shadow: 0 0 8px 0 rgba(132, 132, 132, 0.66);
+}
+
+.post_in_profile .cm_button {
+	background-color: #fcfcfc;
+}
+
+.post_header {
+	min-height: 80px;
+	position: relative;
+	margin-bottom: -10px;
+    font-size: 20px;
+}
+
+
+.post_header p a{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.post_header h5 {
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+
+.post_body {
+	min-height: 340px;
+    position: relative;
+    line-height: 20px;
+    font-family: 'new times roman';
+}
+
+.post_time {
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}
+
+.post_content {
+	margin-left: 30px;
+}
+
+.post_comments {
+	max-height: 120px;
+	overflow: auto;
+    font-size: 12px;
+}
+
+.post_comment_div {
+	background-color: #f2f2f2;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+.post_cm_img {
+	height: 40px;
+}
+
+.post_incm {
+	height: 50px;
+	margin-top: 10px;
+}
+
+.post_incm img {
+	height: 40px;
+}
+
+.likeCommentDiv span {
+	display: inline-block;
+	position: relative;
+	top: -8px;
+	margin-right: 80px;
+	margin-left: 5px;
+/* 	margin-top: 12px;
+	margin-bottom: 12px; */
+}
+
+.cm_input {
+	height: 35px;
+	width: 500px;
+}
+
+.cm_button {
+	height: 40px;
+	width: 60px;
+    position: relative;
+    bottom: 15px;
+    left: 10px;
+    cursor: pointer;
+	background-color: #fcfcfc;
+	background-image: url("../img/cm.png");
+	background-repeat: no-repeat;
+	border: none;
+/* 	border: 1px solid black; */
+}
+
+.ff_button {
+	height: 40px;
+	width: 100px;
+	background-color: #c5c5c5;
+	border: none;
+	float: right;
+    font-family: cursive;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.suggested_movie {
+	min-height: 100px;
+}
+
+.suggested_movie h2{
+	margin-bottom: 0;
+}
+
+.suggested_movie_img {
+	height: 99px;
+	margin-left: 5px;
+}
+
+.suggested_people {
+	min-height: 50px;
+}
+
+.suggested_people img {
+	height: 50px;
+	margin-left: 5px;
+}
+
+.suggested_people h6 {
+	margin-top: 0;
+}
+
+.suggested_people h2 {
+	margin-bottom: 0;
+}
+    
+.center {
+	text-align: center;
+}
+
+.inline_block {
+	display: inline-block;
+}
+
+header {
+	position: fixed;
+	z-index: 100;
+	width: inherit;
+/*	min-width: 1200px;*/
+	height: 70px;
+	background-color: #979797;
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 1);
+    opacity: 0.991;
+}
+
+.header_img {
+    display: inline-block;
+    height: 50px;
+    float: left;
+    margin: 10px 15px 10px 15px;
+}
+
+header form {
+	display: inline-block;
+    float: left;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+select {
+	background-color: rgba(12, 101, 165, 0.6);
+	padding: 12px 0px;
+	width: 60px;
+  	color: #fff;
+  	border: 1px solid black;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: bold;
+    padding-left: 4px;
+    border: none;
+}
+
+header select {
+	margin-right: -5px;
+	width: 70px;
+	height: 41px;
+	border: none;
+	border-radius: 20px 0 0 20px;
+    padding-left: 10px;
+}
+
+.header_input {
+	width: 270px;
+	height: 41px;
+    padding: 0px 0px 0px 10px;
+	border-style: none;
+	font-family: 'Helvetica Neue', sans-serif;
+	border: none;
+	border-left: 1px solid black;
+}
+
+.header_button {
+	height: 41px;
+	width: 60px;
+	background-color: white; 
+	background-image: url("../img/search.png");
+	background-repeat: no-repeat;
+	border: none;
+	border-left: 1px solid black;
+	border-radius: 0 20px 20px 0;
+	margin: -5px;
+}
+
+#extraDiv {
+    width: 100%;
+    height: 70px;
+}
+
+.img_container {
+	width: 100%;
+	height: 200px;
+    margin-top: 30px;
+}
+
+.left_img {
+	float: left;
+	margin-right: 10px;
+}
+
+.right_img {
+	float: right;
+}
+
+.mid_img {
+    display: block;
+    margin: 0px auto;
+}
+
+.rate_img {
+	margin-left: 40px;
+}
+
+.imdb_img {
+	margin-left: 20px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	font-size: 12px;
+	font-family: monospace;
+    font-weight: bold;
+    word-spacing: -2px;
+}
+
+a:hover {
+	color: red;
+}
+
+.login {
+	text-align: center;
+	margin: 20px auto 0px auto;
+	width: 350px;
+	background-color: #e7e7e7;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+	padding: 20px;
+}
+
+.login div {
+    margin: 14px 0px;
+}
+
+.login form {
+    width: 276px;
+    margin: 0px auto;   
+}
+
+.login_button {
+	width: 275px;
+	height: 45px;
+	background-color: #3984ff;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+	border-style: none;
+	font-family: 'Helvetica Neue', sans-serif;
+	font-size: 15px;
+    margin-top: 10px;
+}
+
+.login_button:hover {
+	background-color: #2f6dd2;
+}
+
+
+.input {
+	width: 270px;
+	height: 45px;
+	padding-left: 5px;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+	border-style: none;
+	font-family: 'Helvetica Neue', sans-serif;
+	font-size: 15px;
+}
+
+#BirthdayDiv {
+    width: 270px;
+    height: 43px;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+	padding: 0;
+	margin: 0;
+}
+
+#BirthdayWrapper {
+    width: 270px;
+    margin: 0px auto;
+}
+
+#BirthdayText {
+    display: inline-block;
+    height: inherit;
+    width: 90px;
+    float: left;
+    margin: 0px;
+    line-height: 41px;
+    background-color: #aeaeae;
+    font-family: fantasy;
+}
+
+#BirthdayDiv select {
+    float: left;
+    height: inherit;
+	border-left: 1px solid rgba(12, 101, 165, 0.6);
+    border-radius: 0px;
+    padding: 0 5px;
+}
+
+#BirthdayDiv #DayOfBirth {
+    padding: 0px 10px;
+}
+
+#signup_button {
+    background-color: rgba(21, 186, 61, 0.88);
+}
+
+#signup_button:hover {
+	 background-color: rgba(16, 139, 46, 0.88);
+}
+
+#Recovery_button {
+    background-color: rgba(228, 67, 46, 0.81);
+}
+
+#Recovery_button:hover {
+    background-color: rgba(167, 49, 34, 0.81);
+}
+
+#searchTabs
+{
+    width: 160px;
+    height: 50px;
+	z-index: 1;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 1);
+/*    background-color: gray;*/
+    margin: 0px;
+}
+
+#searchTabs > div
+{
+    cursor: pointer;
+    display: inline-block;
+    width: 80px;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+#movieResult h2
+{
+    font-family: sans-serif;
+}
+
+#notif
+{
+    position: absolute;
+    right: 145px;
+    top: 70px;
+    width: 300px;
+    background-color: #d8d8d8;
+    border-top: 2px solid black;
+    font-size: 13px;
+    font-family: cursive;
+}
+
+div > img[src="img/like.png"]
+{
+    margin-left: 10px;
+}
+
+footer {
+    padding: 40px;
+    text-align: center;
+    font-weight: bold;
+    font-family: fantasy;
+	clear: both;
+}
+
+
+/*
+
+-----------
+-----------
+-----------
+
+*/
+
+.errorlist
+{
+    list-style-type: none;
+    color: red;
+    font-size: 12px;
+    text-align: center;
+    padding: 0;
+}
+
+.errorlist.nonfield
+{
+    font-size: 14px;
+}
+
+.profile_img
+{
+    height: 60px;
+}
+
+.likedPost
+{
+    font-weight: bold;
+    color: blue;
+}
+
+.like_comment
+{
+    font-weight: bold;
+}
+
+.likeCommentDiv img
+{
+    margin-left: 10px;
+}
+
+.ff_button.follow
+{
+    background-color: lightgreen;
+}
+
+.ff_button.unfollow
+{
+    background-color: lightsalmon;
+}
+
+.ezClass
+{
+    color: #3984ff;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.ezClass span
+{
+    display: inline-block;
+	position: static;
+	margin-right: 5px;
+	margin-left: 3px;
+}
+
+header form
+{
+    position: relative;
+}
+
+#searchResult
+{
+    position: absolute;
+    left: 70px;
+    right: 55px;
+    background-color: #d8d8d8;
+
+}
+
+#captcha
+{
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+#captcha img
+{
+    float: right;
+    height: 35px;
+}
+
+#captcha input
+{
+    height: 30px;
+    padding-left: 4px;
+}
+
+.movie_rate
+{
+    float: right;
+    position: relative;
+    top: 10px;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: gold;
+    font-family: cursive;
+    padding: 4px;
+}
+
+.age-aside
+{
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: darkslategray;
+}
+
+.avgRate
+{
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: darkslategray;
+}
+
+.edit-profile
+{
+    float: right;
+    height: 40px;
+	width: 120px;
+	background-color: goldenrod;
+	border: none;
+	float: right;
+    font-family: cursive;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.edit-field
+{
+    margin: 5px;
+    text-align: center;
+}
+
+.edit-label
+{
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 30px;
+    margin-left: 5px;
+    text-align: center;
+}
+
+#datepicker
+{
+    width: 270px;
+    padding-left: 5px;
+    height: 40px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+    border: none;
+}
+
+.edit_button
+{
+    margin: 40px 0 10px 0;
+
+}
+
+#signup_msg
+{
+    font-size: 14px;
+    font-weight: bold;
+    color: limegreen;
+}

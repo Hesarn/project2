@@ -1,0 +1,21 @@
+{% extends "LSF_Template.html" %}
+
+{% block title %} signin {% endblock %}
+
+{% block login %}
+    <h2 class="center">Sign in with your Account</h2>
+    <div class="login">
+        <h1>Login</h1>
+
+        <p id="signup_msg"> {{ msg }} </p>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div><input type="submit" name="commit" value="Login" class="login_button"></div>
+        </form>
+
+        <div><a href="{% url 'signup' %}">Creart new account</a>
+        <br>
+        <a href="{% url 'forget' %}">Forgot my password</a></div>
+    </div>
+{% endblock %}

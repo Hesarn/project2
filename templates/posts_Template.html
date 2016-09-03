@@ -1,0 +1,79 @@
+{% extends 'Header_Aside_Template.html' %}
+{% load static %}
+{% load my_filters %}
+
+{% block posts %}
+    {% for post in posts reversed%}
+        {% block typeOfPost %} {% endblock %}
+            <div class="post_header">
+                <a href="{% url 'showProfile' post.user.id%}"><img src="{{ post.user.profilePicture.url }}"
+                                                                     title="{{ post.user.user.username }}" class="left_img profile_img"></a>
+                <p> <a href="{% url 'showProfile' post.user.id%}"> {{ post.user.user.username }} </a> </p>
+                <a href="{% url 'showPost' post.user.id post.id %}" class="post_time"> {{ post.pubDate }} </a>
+            </div>
+            <hr>
+            <div class="post_body">
+                <a href="{% url 'movieProfile' post.film.name %}" title="{{ post.film.name }}"><img src="{{ post.film.picture.url }}" class="right_img"></a>
+                <a href="{% url 'movieProfile' post.film.name %}" class="inline_block"><h1> {{ post.film.name }} </h1></a>
+
+                <div class="tooltip">
+                    <div class="suggested_movie box-inner">
+                        <a href=""><img src="{{ post.film.picture.url }}" title="{{ post.film.name }}" class="left_img suggested_movie_img"></a>
+                        <a href=""><h2> {{ post.film.name }} </h2></a>
+
+                        {% for cast in post.film.cast_set.all %}
+                            {% if cast.roleName == 'Director' %}
+                                <p> Director: {{ cast.person.name }} </p>
+                            {% endif %}
+                        {% endfor %}
+
+                        <img src="/static/img/rate_{{ post.film.averageScore|round }}.png">
+                    </div>
+                </div>
+
+                <img src="/static/img/rate_{{ post.score }}.png" class="rate_img">
+                <div class="post_content">
+                    <p>
+                        {{ post.body }}
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="likeCommentDiv">
+                <a href="{% url 'likePost' post.id%}" class="likeLink"><img src="{% static 'img/like.png' %}"></a>
+                {% if currUser not in post.likeUsers.all %}
+                    <span class="like_comment"> {{ post.likeUsers.all|length }} </span>
+                {% endif %}
+
+                {% if currUser in post.likeUsers.all %}
+                    <span class="likedPost like_comment"> {{ post.likeUsers.all|length }} </span>
+                {% endif %}
+
+                <img src="{% static 'img/cm2.png' %}">
+                <span class="numberOfComments like_comment"> {{ post.comment_set.all|length }} </span>
+            </div>
+            <hr>
+
+
+            <div class="post_comments">
+                {% for cm in post.comment_set.all reversed%}
+                    <div class="post_comment_div">
+                        <a href="{% url 'showProfile' cm.user.id%}" title="{{ cm.user.user.username }}">
+                        <img src="{{ cm.user.profilePicture.url }}" class="left_img post_cm_img"></a>
+                        <a href="{% url 'showProfile' cm.user.id %}"><p> {{ cm.user.user.username }} </p></a>
+                        <p> {{ cm.body }} </p>
+                    </div>
+                    <hr>
+                {% endfor %}
+            </div>
+
+            <div class="post_incm">
+                <a href="" title="{{ currUser.user.username }}"><img src="{{ currUser.profilePicture.url }}" class="left_img"></a>
+                <form action="{% url 'comment' post.id%}" method="post" class="commentOnPost">
+                    <textarea name="comment" value="" placeholder="Comment" class="cm_input"> </textarea>
+                    <input type="submit" name="commit" value=" " class="cm_button">
+                </form>
+            </div>
+        {% block endTypeOfPost %} {% endblock %}
+    {% endfor %}
+{% endblock %}

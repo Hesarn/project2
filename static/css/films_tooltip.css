@@ -1,0 +1,75 @@
+.tooltip
+{
+	background: white;
+	margin: 50px auto;
+	width: 400px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+	-webkit-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.3); 
+
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+    padding-bottom: 10px;
+}
+
+.box-inner
+{
+	background: white;
+	margin-top: -50px;
+    
+    padding: 15px;
+    padding-left: 10px;
+	font-size: 25px;
+    
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px; 
+
+	/* transform z-index hack */	
+	-moz-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	transform: rotate(0deg);
+}
+
+.tooltip:before
+{
+	content: '';
+	position: relative;
+
+	margin-left: 25px;
+	top: -10px;
+
+	background: white;
+	display: block;
+	width: 20px;
+	height: 50px;
+
+	-webkit-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.3); 
+
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.tooltip p
+{
+    font-size: 14px;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.tooltip img[class="left_img suggested_movie_img"]
+{
+    height: 150px;
+    margin-right: 14px;
+}
